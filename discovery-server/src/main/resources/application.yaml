@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: discovery-server
+server:
+  port: 8761 # Puerto estándar mundial de Eureka
+eureka:
+  client:
+    register-with-eureka: false # Soy el servidor, no me registro
+    fetch-registry: false       # No necesito buscar a otros

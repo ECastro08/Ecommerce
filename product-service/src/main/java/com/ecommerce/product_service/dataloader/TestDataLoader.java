@@ -1,0 +1,26 @@
+package com.ecommerce.product_service.dataloader;
+
+import com.ecommerce.product_service.model.Product;
+import com.ecommerce.product_service.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import java.math.BigDecimal;
+@Component
+@RequiredArgsConstructor
+public class TestDataLoader implements CommandLineRunner {
+    private final ProductRepository productRepository;
+    @Override
+    public void run(String... args) throws Exception {
+        Product product = Product.builder()
+                .name("Mackbook M4")
+                .price(BigDecimal.valueOf(2200))
+                .description("This laptop is the very fast")
+                .build();
+
+        productRepository.save(product);
+
+        System.out.println("Datos cargados con exito: " + product.getName() );
+    }
+}
